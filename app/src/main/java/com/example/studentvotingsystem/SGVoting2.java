@@ -151,8 +151,75 @@ public class SGVoting2 extends AppCompatActivity {
     private void showCandidateDetails(int candidateIndex) {
         if (candidateRadioButtons[candidateIndex] != null) {
             String candidateName = candidateRadioButtons[candidateIndex].getText().toString();
-            // TODO: Implement showing candidate details (e.g., in a dialog or new activity)
-            Toast.makeText(this, "Showing details for " + candidateName, Toast.LENGTH_SHORT).show();
+
+            CandidateInfoDialog dialog = new CandidateInfoDialog(this);
+
+            // Set candidate data based on index
+            switch (candidateIndex) {
+                case 0: // Marquez, Lei Anysson
+                    dialog.setData(
+                            "Vice President",
+                            "Marquez, Lei Anysson",
+                            "BSIT",
+                            "3rd Year",
+                            "• Enhance student representation in academic decision-making\n" +
+                                    "• Implement regular feedback sessions with administration\n" +
+                                    "• Create more opportunities for student leadership\n" +
+                                    "• Improve campus facilities and learning resources\n" +
+                                    "• Organize more career development programs",
+                            R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+
+                case 1: // Vienor, Jayson
+                    dialog.setData(
+                            "Vice President",
+                            "Vienor, Jayson",
+                            "BSIT",
+                            "3rd Year",
+                            "• Strengthen student welfare programs\n" +
+                                    "• Advocate for better academic support systems\n" +
+                                    "• Promote inclusive campus activities\n" +
+                                    "• Establish mental health awareness programs\n" +
+                                    "• Develop student entrepreneurship initiatives",
+                            R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+
+                case 2: // Candidate 3
+                    dialog.setData(
+                            "Vice President",
+                            "Candidate 3",
+                            "BSIT",
+                            "3rd Year",
+                            "• Platform points will be added here\n" +
+                                    "• Second point\n" +
+                                    "• Third point\n" +
+                                    "• Fourth point\n" +
+                                    "• Fifth point",
+                            R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+
+                case 3: // Candidate 4
+                    dialog.setData(
+                            "Vice President",
+                            "Candidate 4",
+                            "BSIT",
+                            "3rd Year",
+                            "• Platform points will be added here\n" +
+                                    "• Second point\n" +
+                                    "• Third point\n" +
+                                    "• Fourth point\n" +
+                                    "• Fifth point",
+                            R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+            }
         }
     }
 

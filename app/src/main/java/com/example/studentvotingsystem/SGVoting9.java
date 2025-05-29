@@ -130,7 +130,7 @@ public class SGVoting9 extends AppCompatActivity {
         // Save to SharedPreferences
         android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
         android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgPIO", selectedCandidate);  // Key for PIO position
+        editor.putString("sgAssistantPRO", selectedCandidate);  // Key for Assistant PRO position
         editor.apply();
 
         // Navigate to the next voting step
@@ -151,8 +151,75 @@ public class SGVoting9 extends AppCompatActivity {
     private void showCandidateDetails(int candidateIndex) {
         if (candidateRadioButtons[candidateIndex] != null) {
             String candidateName = candidateRadioButtons[candidateIndex].getText().toString();
-            // TODO: Implement showing candidate details (e.g., in a dialog or new activity)
-            Toast.makeText(this, "Showing details for " + candidateName, Toast.LENGTH_SHORT).show();
+            
+            CandidateInfoDialog dialog = new CandidateInfoDialog(this);
+            
+            // Set candidate data based on index
+            switch (candidateIndex) {
+                case 0:
+                    dialog.setData(
+                        "Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Support main PRO in communications\n" +
+                        "• Help manage social media accounts\n" +
+                        "• Assist in content creation\n" +
+                        "• Aid in event promotions\n" +
+                        "• Help coordinate PR activities",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 1:
+                    dialog.setData(
+                        "Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Support information dissemination\n" +
+                        "• Help organize PR campaigns\n" +
+                        "• Assist in student engagement\n" +
+                        "• Aid in documentation\n" +
+                        "• Support community outreach",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 2:
+                    dialog.setData(
+                        "Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Platform points will be added here\n" +
+                        "• Second point\n" +
+                        "• Third point\n" +
+                        "• Fourth point\n" +
+                        "• Fifth point",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 3:
+                    dialog.setData(
+                        "Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Platform points will be added here\n" +
+                        "• Second point\n" +
+                        "• Third point\n" +
+                        "• Fourth point\n" +
+                        "• Fifth point",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+            }
         }
     }
 

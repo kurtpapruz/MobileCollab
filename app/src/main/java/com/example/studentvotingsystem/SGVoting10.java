@@ -130,11 +130,11 @@ public class SGVoting10 extends AppCompatActivity {
         // Save to SharedPreferences
         android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
         android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgPeaceOfficer", selectedCandidate);  // Key for Peace Officer position
+        editor.putString("sgBusinessManager", selectedCandidate);  // Key for Business Manager position
         editor.apply();
 
         // Navigate to the next voting step
-        Intent intent = new Intent(this, SGVoting11.class);  // Navigate to confirmation page
+        Intent intent = new Intent(this, SGVoting11.class);  // Navigate to next step
         startActivity(intent);
         finish();
     }
@@ -151,8 +151,75 @@ public class SGVoting10 extends AppCompatActivity {
     private void showCandidateDetails(int candidateIndex) {
         if (candidateRadioButtons[candidateIndex] != null) {
             String candidateName = candidateRadioButtons[candidateIndex].getText().toString();
-            // TODO: Implement showing candidate details (e.g., in a dialog or new activity)
-            Toast.makeText(this, "Showing details for " + candidateName, Toast.LENGTH_SHORT).show();
+            
+            CandidateInfoDialog dialog = new CandidateInfoDialog(this);
+            
+            // Set candidate data based on index
+            switch (candidateIndex) {
+                case 0:
+                    dialog.setData(
+                        "Assistant Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Develop sustainable business strategies\n" +
+                        "• Manage organization resources effectively\n" +
+                        "• Create revenue-generating initiatives\n" +
+                        "• Establish business partnerships\n" +
+                        "• Implement cost-saving measures",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 1:
+                    dialog.setData(
+                        "Assistant Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Improve financial management systems\n" +
+                        "• Create fundraising opportunities\n" +
+                        "• Develop business relationships\n" +
+                        "• Enhance resource allocation\n" +
+                        "• Implement business best practices",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 2:
+                    dialog.setData(
+                        "Assistant Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Platform points will be added here\n" +
+                        "• Second point\n" +
+                        "• Third point\n" +
+                        "• Fourth point\n" +
+                        "• Fifth point",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 3:
+                    dialog.setData(
+                        "Assistant Business Manager",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Platform points will be added here\n" +
+                        "• Second point\n" +
+                        "• Third point\n" +
+                        "• Fourth point\n" +
+                        "• Fifth point",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+            }
         }
     }
 

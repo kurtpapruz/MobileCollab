@@ -151,8 +151,75 @@ public class SGVoting3 extends AppCompatActivity {
     private void showCandidateDetails(int candidateIndex) {
         if (candidateRadioButtons[candidateIndex] != null) {
             String candidateName = candidateRadioButtons[candidateIndex].getText().toString();
-            // TODO: Implement showing candidate details (e.g., in a dialog or new activity)
-            Toast.makeText(this, "Showing details for " + candidateName, Toast.LENGTH_SHORT).show();
+            
+            CandidateInfoDialog dialog = new CandidateInfoDialog(this);
+            
+            // Set candidate data based on index
+            switch (candidateIndex) {
+                case 0:
+                    dialog.setData(
+                        "Secretary",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Maintain accurate records of all meetings\n" +
+                        "• Improve documentation processes\n" +
+                        "• Enhance communication channels\n" +
+                        "• Create efficient filing system\n" +
+                        "• Ensure transparency in record-keeping",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 1:
+                    dialog.setData(
+                        "Secretary",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Digitize student organization records\n" +
+                        "• Implement better information sharing\n" +
+                        "• Create accessible archives\n" +
+                        "• Streamline documentation procedures\n" +
+                        "• Establish better reporting systems",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 2:
+                    dialog.setData(
+                        "Secretary",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Platform points will be added here\n" +
+                        "• Second point\n" +
+                        "• Third point\n" +
+                        "• Fourth point\n" +
+                        "• Fifth point",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+                    
+                case 3:
+                    dialog.setData(
+                        "Secretary",
+                        candidateName,
+                        "BSIT",
+                        "3rd Year",
+                        "• Platform points will be added here\n" +
+                        "• Second point\n" +
+                        "• Third point\n" +
+                        "• Fourth point\n" +
+                        "• Fifth point",
+                        R.drawable.candidate_placeholder
+                    );
+                    dialog.show();
+                    break;
+            }
         }
     }
 
