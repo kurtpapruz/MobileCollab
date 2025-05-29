@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StudentVotingSystem"
+        tools:targetApi="31">
+        <activity
+            android:name=".OrgResults"
+            android:exported="false" />
+        <activity
+            android:name=".Results"
+            android:exported="false" />
+        <activity
+            android:name=".SGResults"
+            android:exported="false" />
+        <activity
+            android:name=".SGVotingConfirmation"
+            android:exported="false" />
+        <activity
+            android:name=".SGVotingSummary"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting16"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting15"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting14"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting13"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting12"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting11"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting10"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting9"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting8"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting7"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting6"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting5"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting4"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting3"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting2"
+            android:exported="false" />
+        <activity
+            android:name=".SGVoting1"
+            android:exported="false" />
+        <activity
+            android:name=".SGVotingInstruction"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVotingConfirmation"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVotingSummary"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting12"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting11"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting10"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting9"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting8"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting7"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting6"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting5"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting4"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting3"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting1"
+            android:exported="false" />
+        <activity
+            android:name=".VotingInstructionsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".VotingInstructionsAct"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVoting2"
+            android:exported="false" />
+        <activity
+            android:name=".OrgVotingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResultActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
