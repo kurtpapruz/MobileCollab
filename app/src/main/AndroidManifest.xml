@@ -16,9 +16,6 @@
             android:name=".OrgResults"
             android:exported="false" />
         <activity
-            android:name=".Results"
-            android:exported="false" />
-        <activity
             android:name=".SGResults"
             android:exported="false" />
         <activity
@@ -122,13 +119,7 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".VotingInstructionsAct"
-            android:exported="false" />
-        <activity
             android:name=".OrgVoting2"
-            android:exported="false" />
-        <activity
-            android:name=".OrgVotingActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
@@ -152,10 +143,10 @@
             android:name=".NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".ResultActivity"
+            android:name=".OrgHistoryDetails"
             android:exported="false" />
     </application>
 

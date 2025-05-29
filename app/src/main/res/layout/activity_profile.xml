@@ -110,7 +110,7 @@
                             android:background="@drawable/circle_background"
                             android:padding="6dp"
                             android:src="@drawable/ic_edit"
-                            app:tint="@color/blue" />
+                            app:tint="@color/white" />
                     </FrameLayout>
 
                     <TextView

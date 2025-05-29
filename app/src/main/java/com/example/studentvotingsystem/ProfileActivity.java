@@ -19,6 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Button logoutButton;
     private ImageButton backButton;
     private LinearLayout homeNav, voteNav, profileNav;
+    private ImageView notificationIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +35,23 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
+        // Initialize all views
+        backButton = findViewById(R.id.backButton);
+        notificationIcon = findViewById(R.id.notificationIcon);
+        homeNav = findViewById(R.id.homeNav);
+        voteNav = findViewById(R.id.voteNav);
+        profileNav = findViewById(R.id.profileNav);
         nameText = findViewById(R.id.nameText);
         studentIdText = findViewById(R.id.studentIdText);
         sectionText = findViewById(R.id.sectionText);
         votingHistoryButton = findViewById(R.id.votingHistoryButton);
         logoutButton = findViewById(R.id.logoutButton);
-        backButton = findViewById(R.id.backButton);
-        homeNav = findViewById(R.id.homeNav);
-        voteNav = findViewById(R.id.voteNav);
-        profileNav = findViewById(R.id.profileNav);
+
+        // Initialize edit button
+        ImageView editButton = findViewById(R.id.editProfileImage);
+        editButton.setOnClickListener(v -> showEditProfileDialog());
 
         // Initialize notification icon with click handler
-        ImageView notificationIcon = findViewById(R.id.notificationIcon);
         notificationIcon.setOnClickListener(v -> {
             Intent intent = new Intent(this, NotificationActivity.class);
             startActivity(intent);
@@ -58,7 +64,8 @@ public class ProfileActivity extends AppCompatActivity {
         backButton.setOnClickListener(v -> handleBackPress());
 
         votingHistoryButton.setOnClickListener(v -> {
-            // TODO: Implement voting history screen navigation
+            VotingHistoryDialog dialog = new VotingHistoryDialog(this);
+            dialog.show();
         });
 
         logoutButton.setOnClickListener(v -> {
@@ -105,6 +112,15 @@ public class ProfileActivity extends AppCompatActivity {
         nameText.setText("Papruz, Kurt Russel B.");
         studentIdText.setText("02000289857");
         sectionText.setText("BSIT3A");
+    }
+
+    private void showEditProfileDialog() {
+        EditProfileDialog dialog = new EditProfileDialog(this);
+        dialog.setOnProfileUpdateListener(name -> {
+            // Update the profile name when saved
+            nameText.setText(name);
+        });
+        dialog.show();
     }
 
     // Handle back button press

@@ -102,4 +102,9 @@ public class DashboardActivity extends AppCompatActivity {
             Toast.makeText(this, "Error navigating to next screen", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void showVotingHistory() {
+        VotingHistoryDialog dialog = new VotingHistoryDialog(this);
+        dialog.show();
+    }
 } 
