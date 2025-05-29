@@ -130,7 +130,7 @@ public class SGVoting16 extends AppCompatActivity {
         // Save to SharedPreferences
         android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
         android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgPosition16", selectedCandidate);  // Key for this position
+        editor.putString("sgFourthYearRep", selectedCandidate);  // Key for Fourth Year Representative position
         editor.apply();
 
         // Navigate to the next voting step
@@ -162,11 +162,11 @@ public class SGVoting16 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Maintain order in meetings\n" +
-                        "• Ensure security protocols\n" +
-                        "• Manage access control\n" +
-                        "• Coordinate with security team\n" +
-                        "• Handle emergency situations",
+                        "• Lead graduation preparation initiatives\n" +
+                        "• Coordinate job placement programs\n" +
+                        "• Support thesis/capstone projects\n" +
+                        "• Facilitate alumni connections\n" +
+                        "• Promote career opportunities",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -178,11 +178,11 @@ public class SGVoting16 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Enforce meeting procedures\n" +
-                        "• Implement safety measures\n" +
-                        "• Control venue access\n" +
-                        "• Support event security\n" +
-                        "• Manage crowd control",
+                        "• Champion senior student interests\n" +
+                        "• Organize career fairs\n" +
+                        "• Support graduation activities\n" +
+                        "• Facilitate industry networking\n" +
+                        "• Promote professional readiness",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -194,11 +194,11 @@ public class SGVoting16 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Drive senior class initiatives\n" +
+                        "• Coordinate graduation events\n" +
+                        "• Support job search preparation\n" +
+                        "• Facilitate alumni mentorship\n" +
+                        "• Promote career development",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -210,11 +210,11 @@ public class SGVoting16 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Lead senior student programs\n" +
+                        "• Organize professional workshops\n" +
+                        "• Support career transition\n" +
+                        "• Facilitate industry placement\n" +
+                        "• Promote workplace readiness",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();

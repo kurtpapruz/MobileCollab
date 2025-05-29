@@ -130,7 +130,7 @@ public class SGVoting13 extends AppCompatActivity {
         // Save to SharedPreferences
         android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
         android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgThirdYearRep", selectedCandidate);  // Key for Third Year Representative position
+        editor.putString("sgFirstYearRep", selectedCandidate);  // Key for First Year Representative position
         editor.apply();
 
         // Navigate to the next voting step
@@ -162,11 +162,11 @@ public class SGVoting13 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Support peace and order initiatives\n" +
-                        "• Assist in security operations\n" +
-                        "• Help maintain event safety\n" +
-                        "• Aid in emergency response\n" +
-                        "• Support crowd management",
+                        "• Represent first year students effectively\n" +
+                        "• Voice first year concerns and needs\n" +
+                        "• Organize first year student activities\n" +
+                        "• Bridge communication with faculty\n" +
+                        "• Support academic initiatives",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -178,11 +178,11 @@ public class SGVoting13 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Help enforce safety protocols\n" +
-                        "• Support security coordination\n" +
-                        "• Assist in risk assessment\n" +
-                        "• Aid in safety planning\n" +
-                        "• Support incident response",
+                        "• Facilitate first year student integration\n" +
+                        "• Promote student engagement\n" +
+                        "• Coordinate with student services\n" +
+                        "• Support first year programs\n" +
+                        "• Help address student concerns",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -194,11 +194,11 @@ public class SGVoting13 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Advocate for first year student rights\n" +
+                        "• Organize orientation programs\n" +
+                        "• Support academic success initiatives\n" +
+                        "• Foster student community building\n" +
+                        "• Facilitate student feedback channels",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -210,11 +210,11 @@ public class SGVoting13 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Champion first year student welfare\n" +
+                        "• Coordinate peer support programs\n" +
+                        "• Promote student development\n" +
+                        "• Support campus integration\n" +
+                        "• Facilitate student resources access",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();

@@ -130,7 +130,7 @@ public class SGVoting14 extends AppCompatActivity {
         // Save to SharedPreferences
         android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
         android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgFourthYearRep", selectedCandidate);  // Key for Fourth Year Representative position
+        editor.putString("sgSecondYearRep", selectedCandidate);  // Key for Second Year Representative position
         editor.apply();
 
         // Navigate to the next voting step
@@ -162,11 +162,11 @@ public class SGVoting14 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Lead project planning and execution\n" +
-                        "• Coordinate team activities\n" +
-                        "• Manage project timelines\n" +
-                        "• Ensure quality deliverables\n" +
-                        "• Monitor project progress",
+                        "• Represent second year students effectively\n" +
+                        "• Advocate for academic improvements\n" +
+                        "• Organize student development activities\n" +
+                        "• Facilitate student-faculty communication\n" +
+                        "• Support career development programs",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -178,11 +178,11 @@ public class SGVoting14 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Oversee project implementation\n" +
-                        "• Facilitate team communication\n" +
-                        "• Manage resource allocation\n" +
-                        "• Track project milestones\n" +
-                        "• Ensure stakeholder satisfaction",
+                        "• Champion second year student interests\n" +
+                        "• Coordinate academic support initiatives\n" +
+                        "• Promote student leadership opportunities\n" +
+                        "• Foster community engagement\n" +
+                        "• Support student welfare programs",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -194,11 +194,11 @@ public class SGVoting14 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Lead student academic initiatives\n" +
+                        "• Organize peer mentoring programs\n" +
+                        "• Facilitate student feedback systems\n" +
+                        "• Support professional development\n" +
+                        "• Promote student collaboration",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -210,11 +210,11 @@ public class SGVoting14 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Drive student success programs\n" +
+                        "• Coordinate academic resources\n" +
+                        "• Support student organizations\n" +
+                        "• Facilitate career workshops\n" +
+                        "• Promote student development",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();

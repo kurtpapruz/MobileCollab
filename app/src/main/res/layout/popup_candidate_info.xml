@@ -37,7 +37,7 @@
             android:background="@color/white"
             app:strokeWidth="1dp"
             app:strokeColor="@color/gray"
-            app:shapeAppearanceOverlay="@style/CircularImageView"/>
+            app:shapeAppearanceOverlay="@style/CircularShape"/>
 
         <!-- Candidate Name -->
         <TextView

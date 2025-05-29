@@ -130,7 +130,7 @@ public class SGVoting15 extends AppCompatActivity {
         // Save to SharedPreferences
         android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
         android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgPosition15", selectedCandidate);  // Key for this position
+        editor.putString("sgThirdYearRep", selectedCandidate);  // Key for Third Year Representative position
         editor.apply();
 
         // Navigate to the next voting step
@@ -162,11 +162,11 @@ public class SGVoting15 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Support project planning\n" +
-                        "• Assist in team coordination\n" +
-                        "• Help track project progress\n" +
-                        "• Aid in resource management\n" +
-                        "• Support quality control",
+                        "• Lead third year student initiatives\n" +
+                        "• Coordinate internship opportunities\n" +
+                        "• Support career preparation\n" +
+                        "• Facilitate industry connections\n" +
+                        "• Promote professional development",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -178,11 +178,11 @@ public class SGVoting15 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Help manage project tasks\n" +
-                        "• Support team communication\n" +
-                        "• Assist in timeline tracking\n" +
-                        "• Aid in risk management\n" +
-                        "• Support project documentation",
+                        "• Champion third year student needs\n" +
+                        "• Organize career workshops\n" +
+                        "• Support academic excellence\n" +
+                        "• Facilitate networking events\n" +
+                        "• Promote industry exposure",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -194,11 +194,11 @@ public class SGVoting15 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Drive professional growth initiatives\n" +
+                        "• Coordinate industry visits\n" +
+                        "• Support skill development\n" +
+                        "• Facilitate mentorship programs\n" +
+                        "• Promote career readiness",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();
@@ -210,11 +210,11 @@ public class SGVoting15 extends AppCompatActivity {
                         candidateName,
                         "BSIT",
                         "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
+                        "• Lead career development programs\n" +
+                        "• Organize professional seminars\n" +
+                        "• Support industry partnerships\n" +
+                        "• Facilitate student placement\n" +
+                        "• Promote workplace preparation",
                         R.drawable.candidate_placeholder
                     );
                     dialog.show();

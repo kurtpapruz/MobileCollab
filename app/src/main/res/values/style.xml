@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="CircularImage" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerSize">50%</item>
-    </style>
-    <style name="CircleImage">
+    <!-- Custom shape appearance for circular images -->
+    <style name="CircularShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Custom style for profile images -->
+    <style name="ProfileImageStyle" parent="Widget.MaterialComponents.ShapeableImageView">
+        <item name="shapeAppearance">@style/CircularShape</item>
+        <item name="android:scaleType">centerCrop</item>
     </style>
 </resources>
