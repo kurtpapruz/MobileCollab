@@ -20,7 +20,7 @@ public class SGVoting15 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sgvoting15);
+        setContentView(R.layout.activity_sgvoting1);
 
         initializeViews();
         setupListeners();
@@ -43,22 +43,10 @@ public class SGVoting15 extends AppCompatActivity {
         candidateRadioButtons[2] = findViewById(R.id.candidate3Radio);
         candidateRadioButtons[3] = findViewById(R.id.candidate4Radio);
 
-        // Initialize "More" links
-        candidateMoreLinks = new TextView[4];
-        candidateMoreLinks[0] = findViewById(R.id.candidate1More);
-        candidateMoreLinks[1] = findViewById(R.id.candidate2More);
-        candidateMoreLinks[2] = findViewById(R.id.candidate3More);
-        candidateMoreLinks[3] = findViewById(R.id.candidate4More);
-
         // Make all views clickable
         homeNav.setClickable(true);
         voteNav.setClickable(true);
         profileNav.setClickable(true);
-        for (TextView moreLink : candidateMoreLinks) {
-            if (moreLink != null) {
-                moreLink.setClickable(true);
-            }
-        }
     }
 
     private void setupListeners() {
@@ -76,14 +64,6 @@ public class SGVoting15 extends AppCompatActivity {
                 Toast.makeText(this, "Please select a candidate", Toast.LENGTH_SHORT).show();
             }
         });
-
-        // Set up click listeners for "More" links
-        for (int i = 0; i < candidateMoreLinks.length; i++) {
-            final int candidateIndex = i;
-            if (candidateMoreLinks[i] != null) {
-                candidateMoreLinks[i].setOnClickListener(v -> showCandidateDetails(candidateIndex));
-            }
-        }
 
         // Set up radio button group behavior
         for (int i = 0; i < candidateRadioButtons.length; i++) {
@@ -126,15 +106,15 @@ public class SGVoting15 extends AppCompatActivity {
     private void moveToNextStep() {
         // Save the selected candidate
         String selectedCandidate = getSelectedCandidate();
-        
+
         // Save to SharedPreferences
         android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
         android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgPosition15", selectedCandidate);  // Key for this position
+        editor.putString("sg3rdyearRepre", selectedCandidate);
         editor.apply();
 
         // Navigate to the next voting step
-        Intent intent = new Intent(this, SGVoting16.class);  // Navigate to confirmation page
+        Intent intent = new Intent(this, SGVoting16.class);
         startActivity(intent);
         finish();
     }
@@ -146,81 +126,6 @@ public class SGVoting15 extends AppCompatActivity {
             }
         }
         return null;
-    }
-
-    private void showCandidateDetails(int candidateIndex) {
-        if (candidateRadioButtons[candidateIndex] != null) {
-            String candidateName = candidateRadioButtons[candidateIndex].getText().toString();
-            
-            CandidateInfoDialog dialog = new CandidateInfoDialog(this);
-            
-            // Set candidate data based on index
-            switch (candidateIndex) {
-                case 0:
-                    dialog.setData(
-                        "3rd year Representative",
-                        candidateName,
-                        "BSIT",
-                        "3rd Year",
-                        "• Support project planning\n" +
-                        "• Assist in team coordination\n" +
-                        "• Help track project progress\n" +
-                        "• Aid in resource management\n" +
-                        "• Support quality control",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-                    
-                case 1:
-                    dialog.setData(
-                        "3rd year Representative",
-                        candidateName,
-                        "BSIT",
-                        "3rd Year",
-                        "• Help manage project tasks\n" +
-                        "• Support team communication\n" +
-                        "• Assist in timeline tracking\n" +
-                        "• Aid in risk management\n" +
-                        "• Support project documentation",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-                    
-                case 2:
-                    dialog.setData(
-                        "3rd year Representative",
-                        candidateName,
-                        "BSIT",
-                        "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-                    
-                case 3:
-                    dialog.setData(
-                        "3rd year Representative",
-                        candidateName,
-                        "BSIT",
-                        "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-            }
-        }
     }
 
     private void navigateToActivity(Class<?> destinationActivity) {
@@ -236,8 +141,8 @@ public class SGVoting15 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        // Navigate back to the previous voting step
-        Intent intent = new Intent(this, SGVoting14.class);  // Changed to previous step
+        // Navigate back to the instructions screen
+        Intent intent = new Intent(this, SGVoting14.class);
         startActivity(intent);
         finish();
     }

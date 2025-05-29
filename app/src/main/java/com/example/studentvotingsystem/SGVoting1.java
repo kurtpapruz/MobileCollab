@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +14,6 @@ public class SGVoting1 extends AppCompatActivity {
     private Button backBtn, nextBtn;
     private ImageButton backButton;
     private RadioButton[] candidateRadioButtons;
-    private TextView[] candidateMoreLinks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,22 +41,10 @@ public class SGVoting1 extends AppCompatActivity {
         candidateRadioButtons[2] = findViewById(R.id.candidate3Radio);
         candidateRadioButtons[3] = findViewById(R.id.candidate4Radio);
 
-        // Initialize "More" links
-        candidateMoreLinks = new TextView[4];
-        candidateMoreLinks[0] = findViewById(R.id.candidate1More);
-        candidateMoreLinks[1] = findViewById(R.id.candidate2More);
-        candidateMoreLinks[2] = findViewById(R.id.candidate3More);
-        candidateMoreLinks[3] = findViewById(R.id.candidate4More);
-
         // Make all views clickable
         homeNav.setClickable(true);
         voteNav.setClickable(true);
         profileNav.setClickable(true);
-        for (TextView moreLink : candidateMoreLinks) {
-            if (moreLink != null) {
-                moreLink.setClickable(true);
-            }
-        }
     }
 
     private void setupListeners() {
@@ -76,14 +62,6 @@ public class SGVoting1 extends AppCompatActivity {
                 Toast.makeText(this, "Please select a candidate", Toast.LENGTH_SHORT).show();
             }
         });
-
-        // Set up click listeners for "More" links
-        for (int i = 0; i < candidateMoreLinks.length; i++) {
-            final int candidateIndex = i;
-            if (candidateMoreLinks[i] != null) {
-                candidateMoreLinks[i].setOnClickListener(v -> showCandidateDetails(candidateIndex));
-            }
-        }
 
         // Set up radio button group behavior
         for (int i = 0; i < candidateRadioButtons.length; i++) {
@@ -146,81 +124,6 @@ public class SGVoting1 extends AppCompatActivity {
             }
         }
         return null;
-    }
-
-    private void showCandidateDetails(int candidateIndex) {
-        if (candidateRadioButtons[candidateIndex] != null) {
-            String candidateName = candidateRadioButtons[candidateIndex].getText().toString();
-            
-            CandidateInfoDialog dialog = new CandidateInfoDialog(this);
-            
-            // Set candidate data based on index
-            switch (candidateIndex) {
-                case 0: // Marquez, Lei Anysson
-                    dialog.setData(
-                        "President",
-                        "Marquez, Lei Anysson",
-                        "BSIT",
-                        "3rd Year",
-                        "• Enhance student representation in academic decision-making\n" +
-                        "• Implement regular feedback sessions with administration\n" +
-                        "• Create more opportunities for student leadership\n" +
-                        "• Improve campus facilities and learning resources\n" +
-                        "• Organize more career development programs",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-                    
-                case 1: // Vienor, Jayson
-                    dialog.setData(
-                        "President",
-                        "Vienor, Jayson",
-                        "BSIT",
-                        "3rd Year",
-                        "• Strengthen student welfare programs\n" +
-                        "• Advocate for better academic support systems\n" +
-                        "• Promote inclusive campus activities\n" +
-                        "• Establish mental health awareness programs\n" +
-                        "• Develop student entrepreneurship initiatives",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-                    
-                case 2: // Candidate 3
-                    dialog.setData(
-                        "President",
-                        "Candidate 3",
-                        "BSIT",
-                        "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-                    
-                case 3: // Candidate 4
-                    dialog.setData(
-                        "President",
-                        "Candidate 4",
-                        "BSIT",
-                        "3rd Year",
-                        "• Platform points will be added here\n" +
-                        "• Second point\n" +
-                        "• Third point\n" +
-                        "• Fourth point\n" +
-                        "• Fifth point",
-                        R.drawable.candidate_placeholder
-                    );
-                    dialog.show();
-                    break;
-            }
-        }
     }
 
     private void navigateToActivity(Class<?> destinationActivity) {

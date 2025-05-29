@@ -179,19 +179,6 @@
                             android:background="@android:color/darker_gray"
                             android:scaleType="centerCrop" />
 
-                        <TextView
-                            android:id="@+id/candidate1More"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:text="More"
-                            android:textColor="@color/blue"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?attr/selectableItemBackground"/>
-
                         <RadioButton
                             android:id="@+id/candidate1Radio"
                             android:layout_width="wrap_content"
@@ -219,19 +206,6 @@
                             android:layout_height="140dp"
                             android:background="@android:color/darker_gray"
                             android:scaleType="centerCrop" />
-
-                        <TextView
-                            android:id="@+id/candidate2More"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:text="More"
-                            android:textColor="@color/blue"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?attr/selectableItemBackground"/>
 
                         <RadioButton
                             android:id="@+id/candidate2Radio"
@@ -261,19 +235,6 @@
                             android:background="@android:color/darker_gray"
                             android:scaleType="centerCrop" />
 
-                        <TextView
-                            android:id="@+id/candidate3More"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:text="More"
-                            android:textColor="@color/blue"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?attr/selectableItemBackground"/>
-
                         <RadioButton
                             android:id="@+id/candidate3Radio"
                             android:layout_width="wrap_content"
@@ -301,19 +262,6 @@
                             android:layout_height="140dp"
                             android:background="@android:color/darker_gray"
                             android:scaleType="centerCrop" />
-
-                        <TextView
-                            android:id="@+id/candidate4More"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:text="More"
-                            android:textColor="@color/blue"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?attr/selectableItemBackground"/>
 
                         <RadioButton
                             android:id="@+id/candidate4Radio"
