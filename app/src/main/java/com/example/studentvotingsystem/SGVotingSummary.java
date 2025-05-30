@@ -118,22 +118,22 @@ public class SGVotingSummary extends AppCompatActivity {
         String assistantBusinessManager = prefs.getString("sgAssistantBusinessManager", "No selection");
         assistantBusinessManagerName.setText(assistantBusinessManager);
 
-        String multimedia1 = prefs.getString("sgMultimedia1", "No selection");
+        String multimedia1 = prefs.getString("sgMultimediaHead", "No selection");
         multimedia1Name.setText(multimedia1);
 
-        String multimedia2 = prefs.getString("sgMultimedia2", "No selection");
+        String multimedia2 = prefs.getString("sgAssistantMultimediaHead", "No selection");
         multimedia2Name.setText(multimedia2);
 
-        String firstYearRep = prefs.getString("sg1styearRepre", "No selection");
+        String firstYearRep = prefs.getString("sgFirstYearRep", "No selection");
         firstYearRepName.setText(firstYearRep);
 
-        String secondYearRep = prefs.getString("sg2ndyearRepre", "No selection");
+        String secondYearRep = prefs.getString("sgSecondYearRep", "No selection");
         secondYearRepName.setText(secondYearRep);
 
-        String thirdYearRep = prefs.getString("sg3rdyearRepre", "No selection");
+        String thirdYearRep = prefs.getString("sgThirdYearRep", "No selection");
         thirdYearRepName.setText(thirdYearRep);
 
-        String fourthYearRep = prefs.getString("sg4thyearRepre", "No selection");
+        String fourthYearRep = prefs.getString("sgFourthYearRep", "No selection");
         fourthYearRepName.setText(fourthYearRep);
 
         // Check if all positions have selections
