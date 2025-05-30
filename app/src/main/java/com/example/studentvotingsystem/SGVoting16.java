@@ -1,12 +1,12 @@
 package com.example.studentvotingsystem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,14 +15,14 @@ public class SGVoting16 extends AppCompatActivity {
     private Button backBtn, nextBtn;
     private ImageButton backButton;
     private RadioButton[] candidateRadioButtons;
-    private TextView[] candidateMoreLinks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sgvoting1);
+        setContentView(R.layout.activity_sgvoting16);
 
         initializeViews();
+        loadExistingSelection();
         setupListeners();
         setupBottomNavigation();
     }
@@ -47,6 +47,22 @@ public class SGVoting16 extends AppCompatActivity {
         homeNav.setClickable(true);
         voteNav.setClickable(true);
         profileNav.setClickable(true);
+    }
+
+    private void loadExistingSelection() {
+        // Load the existing selection if any
+        SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
+        String existingVote = prefs.getString("sgFourthYearRep", null);
+        
+        if (existingVote != null) {
+            // Find and check the radio button matching the existing vote
+            for (RadioButton radioButton : candidateRadioButtons) {
+                if (radioButton != null && radioButton.getText().toString().equals(existingVote)) {
+                    radioButton.setChecked(true);
+                    break;
+                }
+            }
+        }
     }
 
     private void setupListeners() {
@@ -106,17 +122,27 @@ public class SGVoting16 extends AppCompatActivity {
     private void moveToNextStep() {
         // Save the selected candidate
         String selectedCandidate = getSelectedCandidate();
+        
+        if (selectedCandidate != null) {
+            // Save to SharedPreferences without clearing other votes
+            SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("sgFourthYearRep", selectedCandidate);
+            editor.apply();
 
-        // Save to SharedPreferences
-        android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
-        android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sg4thyearRepre", selectedCandidate);
-        editor.apply();
-
-        // Navigate to the next voting step
-        Intent intent = new Intent(this, SGVotingSummary.class);
-        startActivity(intent);
-        finish();
+            // If coming from summary, go back there
+            if (getIntent().hasExtra("fromSummary")) {
+                Intent intent = new Intent(this, SGVotingSummary.class);
+                startActivity(intent);
+            } else {
+                // Navigate to the summary screen since this is the last voting step
+                Intent intent = new Intent(this, SGVotingSummary.class);
+                startActivity(intent);
+            }
+            finish();
+        } else {
+            Toast.makeText(this, "Please select a candidate", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private String getSelectedCandidate() {
@@ -141,9 +167,15 @@ public class SGVoting16 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        // Navigate back to the instructions screen
-        Intent intent = new Intent(this, SGVoting15.class);
-        startActivity(intent);
+        // If coming from summary, go back there
+        if (getIntent().hasExtra("fromSummary")) {
+            Intent intent = new Intent(this, SGVotingSummary.class);
+            startActivity(intent);
+        } else {
+            // Navigate back to the previous voting screen
+            Intent intent = new Intent(this, SGVoting15.class);
+            startActivity(intent);
+        }
         finish();
     }
 }

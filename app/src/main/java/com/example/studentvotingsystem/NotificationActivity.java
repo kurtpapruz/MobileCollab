@@ -60,13 +60,6 @@ public class NotificationActivity extends AppCompatActivity {
         ));
 
         notifications.add(new NotificationItem(
-            "COMSOC Election Now Live",
-            "The Computer Society Officer Election is now open for voting. Click here to cast your vote.",
-            "10 minutes ago",
-            NotificationItem.TYPE_ELECTION_START
-        ));
-
-        notifications.add(new NotificationItem(
             "Student Council Results Published",
             "The results for Student Council Election 2024 are now available. Juan Dela Cruz has been elected as President.",
             "2 hours ago",

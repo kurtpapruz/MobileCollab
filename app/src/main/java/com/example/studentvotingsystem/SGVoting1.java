@@ -1,6 +1,7 @@
 package com.example.studentvotingsystem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,8 +22,40 @@ public class SGVoting1 extends AppCompatActivity {
         setContentView(R.layout.activity_sgvoting1);
 
         initializeViews();
+        
+        // Only clear votes if not coming from summary screen
+        if (!getIntent().hasExtra("fromSummary")) {
+            clearPreviousVotes();
+        }
+        
+        loadExistingSelection();
         setupListeners();
         setupBottomNavigation();
+    }
+
+    private void clearPreviousVotes() {
+        SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        
+        // Clear all SG voting preferences
+        editor.remove("sgPresident");
+        editor.remove("sgVicePresident");
+        editor.remove("sgSecretary");
+        editor.remove("sgAssistantSecretary");
+        editor.remove("sgTreasurer");
+        editor.remove("sgAssistantTreasurer");
+        editor.remove("sgAuditor");
+        editor.remove("sgAssistantAuditor");
+        editor.remove("sgBusinessManager");
+        editor.remove("sgAssistantBusinessManager");
+        editor.remove("sgMultimediaHead");
+        editor.remove("sgAssistantMultimediaHead");
+        editor.remove("sgFirstYearRep");
+        editor.remove("sgSecondYearRep");
+        editor.remove("sgThirdYearRep");
+        editor.remove("sgFourthYearRep");
+        
+        editor.apply();
     }
 
     private void initializeViews() {
@@ -45,6 +78,22 @@ public class SGVoting1 extends AppCompatActivity {
         homeNav.setClickable(true);
         voteNav.setClickable(true);
         profileNav.setClickable(true);
+    }
+
+    private void loadExistingSelection() {
+        // Load the existing selection if any
+        SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
+        String existingVote = prefs.getString("sgPresident", null);
+        
+        if (existingVote != null) {
+            // Find and check the radio button matching the existing vote
+            for (RadioButton radioButton : candidateRadioButtons) {
+                if (radioButton != null && radioButton.getText().toString().equals(existingVote)) {
+                    radioButton.setChecked(true);
+                    break;
+                }
+            }
+        }
     }
 
     private void setupListeners() {
@@ -105,16 +154,26 @@ public class SGVoting1 extends AppCompatActivity {
         // Save the selected candidate
         String selectedCandidate = getSelectedCandidate();
         
-        // Save to SharedPreferences
-        android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
-        android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("sgPresident", selectedCandidate);
-        editor.apply();
+        if (selectedCandidate != null) {
+            // Save to SharedPreferences without clearing other votes
+            SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("sgPresident", selectedCandidate);
+            editor.apply();
 
-        // Navigate to the next voting step
-        Intent intent = new Intent(this, SGVoting2.class);
-        startActivity(intent);
-        finish();
+            // If coming from summary, go back there
+            if (getIntent().hasExtra("fromSummary")) {
+                Intent intent = new Intent(this, SGVotingSummary.class);
+                startActivity(intent);
+            } else {
+                // Navigate to the next voting step
+                Intent intent = new Intent(this, SGVoting2.class);
+                startActivity(intent);
+            }
+            finish();
+        } else {
+            Toast.makeText(this, "Please select a candidate", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private String getSelectedCandidate() {
@@ -139,9 +198,15 @@ public class SGVoting1 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        // Navigate back to the instructions screen
-        Intent intent = new Intent(this, SGVotingInstruction.class);
-        startActivity(intent);
+        // If coming from summary, go back there
+        if (getIntent().hasExtra("fromSummary")) {
+            Intent intent = new Intent(this, SGVotingSummary.class);
+            startActivity(intent);
+        } else {
+            // Navigate back to the instructions screen
+            Intent intent = new Intent(this, SGVotingInstruction.class);
+            startActivity(intent);
+        }
         finish();
     }
 }

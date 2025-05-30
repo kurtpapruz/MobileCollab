@@ -191,8 +191,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit President"
-                        />
+                        android:contentDescription="Edit President" />
                 </LinearLayout>
 
                 <View
@@ -303,7 +302,7 @@
                     android:layout_marginHorizontal="8dp"
                     android:background="#E0E0E0" />
 
-                <!-- Secretary -->
+                <!-- Assistant Secretary -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -323,7 +322,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/AssistantsSecretaryName"
+                        android:id="@+id/assistantSecretaryName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -345,7 +344,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Secretary" />
+                        android:contentDescription="Edit Assistant Secretary" />
                 </LinearLayout>
 
                 <View
@@ -405,7 +404,7 @@
                     android:layout_marginHorizontal="8dp"
                     android:background="#E0E0E0" />
 
-                <!-- Secretary -->
+                <!-- Assistant Treasurer -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -425,7 +424,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/AssistanTreasurerName"
+                        android:id="@+id/assistantTreasurerName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -447,7 +446,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Secretary" />
+                        android:contentDescription="Edit Assistant Treasurer" />
                 </LinearLayout>
 
                 <View
@@ -494,6 +493,7 @@
                         android:id="@+id/editAuditor"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
@@ -506,7 +506,7 @@
                     android:layout_marginHorizontal="8dp"
                     android:background="#E0E0E0" />
 
-                <!-- Secretary -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -526,7 +526,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/AssistantAuditorName"
+                        android:id="@+id/assistantAuditorName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -548,16 +548,10 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Secretary" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- Business Manager -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -595,19 +589,13 @@
                         android:id="@+id/editBusinessManager"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Business Manager" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- Secretary -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -627,7 +615,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/AssistantBusinessManagerName"
+                        android:id="@+id/AssistantBusinessManager"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -649,16 +637,10 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Secretary" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- Multimedia 1 -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -696,19 +678,14 @@
                         android:id="@+id/editMultimedia1"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Multimedia 1" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- Multimedia 2 -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -746,19 +723,14 @@
                         android:id="@+id/editMultimedia2"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Multimedia 2" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- 1st Year Rep -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -772,7 +744,7 @@
                         android:layout_height="wrap_content"
                         android:minHeight="48dp"
                         android:gravity="center_vertical"
-                        android:text="1st Year Rep:"
+                        android:text="1st year Repre:"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -796,19 +768,14 @@
                         android:id="@+id/editFirstYearRep"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit First Year Rep" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- 2nd Year Rep -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -822,7 +789,7 @@
                         android:layout_height="wrap_content"
                         android:minHeight="48dp"
                         android:gravity="center_vertical"
-                        android:text="2nd Year Rep:"
+                        android:text="2nd year Repre:"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -846,19 +813,13 @@
                         android:id="@+id/editSecondYearRep"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Second Year Rep" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- 3rd Year Rep -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -872,7 +833,7 @@
                         android:layout_height="wrap_content"
                         android:minHeight="48dp"
                         android:gravity="center_vertical"
-                        android:text="3rd Year Rep:"
+                        android:text="3rd year Repre:"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -896,19 +857,14 @@
                         android:id="@+id/editThirdYearRep"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="Edit Third Year Rep"
                         android:src="@drawable/ic_edit"
-                        app:tint="@color/blue"/>
+                        app:tint="@color/blue"
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:background="#E0E0E0" />
-
-                <!-- 4th Year Rep -->
+                <!-- Assistant Auditor -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -922,7 +878,7 @@
                         android:layout_height="wrap_content"
                         android:minHeight="48dp"
                         android:gravity="center_vertical"
-                        android:text="4th Year Rep:"
+                        android:text="4th yeaer Repre:"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -946,10 +902,11 @@
                         android:id="@+id/editFourthYearRep"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:padding="12dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_edit"
                         app:tint="@color/blue"
-                        android:contentDescription="Edit Fourth Year Rep" />
+                        android:contentDescription="Edit Assistant Auditor" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -961,21 +918,18 @@
         android:id="@+id/navigationButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation">
 
         <Button
             android:id="@+id/backBtn"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="120dp"
-            android:minHeight="48dp"
-            android:backgroundTint="@color/blue"
             android:text="Back"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:backgroundTint="@color/blue" />
 
         <View
             android:layout_width="0dp"
@@ -986,11 +940,9 @@
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="120dp"
-            android:minHeight="48dp"
-            android:backgroundTint="@color/yellow"
             android:text="Submit"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:backgroundTint="@color/yellow" />
     </LinearLayout>
 
     <!-- Bottom Navigation -->

@@ -20,7 +20,7 @@ public class SGVoting13 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sgvoting1);
+        setContentView(R.layout.activity_sgvoting13);
 
         initializeViews();
         setupListeners();

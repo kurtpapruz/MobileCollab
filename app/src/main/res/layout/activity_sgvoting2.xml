@@ -238,7 +238,6 @@
                             android:background="@android:color/darker_gray"
                             android:scaleType="centerCrop" />
 
-
                         <RadioButton
                             android:id="@+id/candidate3Radio"
                             android:layout_width="wrap_content"
@@ -386,6 +385,5 @@
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

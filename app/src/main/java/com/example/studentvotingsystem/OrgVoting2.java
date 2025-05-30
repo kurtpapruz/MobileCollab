@@ -20,7 +20,7 @@ public class OrgVoting2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_org_voting1);
+        setContentView(R.layout.activity_org_voting2);
 
         initializeViews();
         setupListeners();

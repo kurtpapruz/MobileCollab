@@ -1,6 +1,7 @@
 package com.example.studentvotingsystem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -8,21 +9,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AlertDialog;
-import android.content.SharedPreferences;
 
 public class SGVotingSummary extends AppCompatActivity {
     private LinearLayout homeNav, voteNav, profileNav;
-    private Button submitButton;
+    private Button backBtn, submitBtn;
     private ImageButton backButton;
     private TextView presidentName, vicePresidentName, secretaryName, assistantSecretaryName,
-            treasurerName, AssistanTreasurerName, auditorName, AssistantAuditorName,
-            businessManagerName, AssistantBusinessManagerName, multimedia1Name, multimedia2Name,firstYearRepName, secondYearRepName,
-            thirdYearRepName, fourthYearRepName;
+            treasurerName, assistantTreasurerName, auditorName, assistantAuditorName, businessManagerName, assistantBusinessManagerName,
+            multimedia1Name, multimedia2Name, firstYearRepName, secondYearRepName, thirdYearRepName, fourthYearRepName;
     private ImageButton editPresident, editVicePresident, editSecretary, editAssistSecretary,
-            editTreasurer, editAssistantTreasurer, editAuditor, editAssistantAuditor, editBusinessManager,
-            editAssistantBusinessManager, editMultimedia1, editMultimedia2, editFirstYearRep, editSecondYearRep,
-            editThirdYearRep, editFourthYearRep ;
+            editTreasurer, editAssistantTreasurer, editAuditor, editAssistantAuditor, editBusinessManager, editAssistantBusinessManager,
+            editMultimedia1, editMultimedia2, editFirstYearRep, editSecondYearRep, editThirdYearRep, editFourthYearRep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +27,9 @@ public class SGVotingSummary extends AppCompatActivity {
         setContentView(R.layout.activity_sgvoting_summary);
 
         initializeViews();
+        loadSelectedCandidates();
         setupListeners();
-        loadVotingData();
+        setupBottomNavigation();
     }
 
     private void initializeViews() {
@@ -39,28 +37,27 @@ public class SGVotingSummary extends AppCompatActivity {
         homeNav = findViewById(R.id.homeNav);
         voteNav = findViewById(R.id.voteNav);
         profileNav = findViewById(R.id.profileNav);
+        backBtn = findViewById(R.id.backBtn);
+        submitBtn = findViewById(R.id.submitBtn);
         backButton = findViewById(R.id.backButton);
-        submitButton = findViewById(R.id.submitBtn);
 
-        // Initialize name TextViews
+        // Initialize TextViews for candidate names
         presidentName = findViewById(R.id.presidentName);
         vicePresidentName = findViewById(R.id.vicePresidentName);
         secretaryName = findViewById(R.id.secretaryName);
-        assistantSecretaryName = findViewById(R.id.AssistantsSecretaryName);
+        assistantSecretaryName = findViewById(R.id.assistantSecretaryName);
         treasurerName = findViewById(R.id.treasurerName);
-        AssistanTreasurerName = findViewById(R.id.AssistanTreasurerName);
+        assistantTreasurerName = findViewById(R.id.assistantTreasurerName);
         auditorName = findViewById(R.id.auditorName);
-        AssistantAuditorName = findViewById(R.id.AssistantAuditorName);
+        assistantAuditorName = findViewById(R.id.assistantAuditorName);
         businessManagerName = findViewById(R.id.businessManagerName);
-        AssistantBusinessManagerName = findViewById(R.id.AssistantBusinessManagerName);
+        assistantBusinessManagerName = findViewById(R.id.AssistantBusinessManager);
         multimedia1Name = findViewById(R.id.multimedia1Name);
         multimedia2Name = findViewById(R.id.multimedia2Name);
         firstYearRepName = findViewById(R.id.firstYearRepName);
         secondYearRepName = findViewById(R.id.secondYearRepName);
         thirdYearRepName = findViewById(R.id.thirdYearRepName);
         fourthYearRepName = findViewById(R.id.fourthYearRepName);
-
-
 
         // Initialize edit buttons
         editPresident = findViewById(R.id.editPresident);
@@ -72,7 +69,6 @@ public class SGVotingSummary extends AppCompatActivity {
         editAuditor = findViewById(R.id.editAuditor);
         editAssistantAuditor = findViewById(R.id.editAssistantAuditor);
         editBusinessManager = findViewById(R.id.editBusinessManager);
-        editBusinessManager = findViewById(R.id.editBusinessManager);
         editAssistantBusinessManager = findViewById(R.id.editAssistantBusinessManager);
         editMultimedia1 = findViewById(R.id.editMultimedia1);
         editMultimedia2 = findViewById(R.id.editMultimedia2);
@@ -80,57 +76,132 @@ public class SGVotingSummary extends AppCompatActivity {
         editSecondYearRep = findViewById(R.id.editSecondYearRep);
         editThirdYearRep = findViewById(R.id.editThirdYearRep);
         editFourthYearRep = findViewById(R.id.editFourthYearRep);
+
+
+        // Make all views clickable
+        homeNav.setClickable(true);
+        voteNav.setClickable(true);
+        profileNav.setClickable(true);
+    }
+
+    private void loadSelectedCandidates() {
+        SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
+        
+        // Load each selected candidate
+        String president = prefs.getString("sgPresident", "No selection");
+        presidentName.setText(president);
+
+        String vicePresident = prefs.getString("sgVicePresident", "No selection");
+        vicePresidentName.setText(vicePresident);
+
+        String secretary = prefs.getString("sgSecretary", "No selection");
+        secretaryName.setText(secretary);
+
+        String assistantSecretary = prefs.getString("sgAssistantSecretary", "No selection");
+        assistantSecretaryName.setText(assistantSecretary);
+
+        String treasurer = prefs.getString("sgTreasurer", "No selection");
+        treasurerName.setText(treasurer);
+
+        String assistantTreasurer = prefs.getString("sgAssistantTreasurer", "No selection");
+        assistantTreasurerName.setText(assistantTreasurer);
+
+        String auditor = prefs.getString("sgAuditor", "No selection");
+        auditorName.setText(auditor);
+
+        String assistantAuditor = prefs.getString("sgAssistantAuditor", "No selection");
+        assistantAuditorName.setText(assistantAuditor);
+
+        String businessManager = prefs.getString("sgBusinessManager", "No selection");
+        businessManagerName.setText(businessManager);
+
+        String assistantBusinessManager = prefs.getString("sgAssistantBusinessManager", "No selection");
+        assistantBusinessManagerName.setText(assistantBusinessManager);
+
+        String multimedia1 = prefs.getString("sgMultimedia1", "No selection");
+        multimedia1Name.setText(multimedia1);
+
+        String multimedia2 = prefs.getString("sgMultimedia2", "No selection");
+        multimedia2Name.setText(multimedia2);
+
+        String firstYearRep = prefs.getString("sg1styearRepre", "No selection");
+        firstYearRepName.setText(firstYearRep);
+
+        String secondYearRep = prefs.getString("sg2ndyearRepre", "No selection");
+        secondYearRepName.setText(secondYearRep);
+
+        String thirdYearRep = prefs.getString("sg3rdyearRepre", "No selection");
+        thirdYearRepName.setText(thirdYearRep);
+
+        String fourthYearRep = prefs.getString("sg4thyearRepre", "No selection");
+        fourthYearRepName.setText(fourthYearRep);
+
+        // Check if all positions have selections
+        boolean allSelected = !president.equals("No selection") &&
+                            !vicePresident.equals("No selection") &&
+                            !secretary.equals("No selection") &&
+                            !assistantSecretary.equals("No selection") &&
+                            !treasurer.equals("No selection") &&
+                            !assistantTreasurer.equals("No selection") &&
+                            !auditor.equals("No selection") &&
+                            !assistantAuditor.equals("No selection") &&
+                            !businessManager.equals("No selection") &&
+                            !assistantBusinessManager.equals("No selection") &&
+                            !multimedia1.equals("No selection") &&
+                            !multimedia2.equals("No selection") &&
+                            !firstYearRep.equals("No selection") &&
+                            !secondYearRep.equals("No selection") &&
+                            !thirdYearRep.equals("No selection") &&
+                            !fourthYearRep.equals("No selection");
+
+        // Enable submit button only if all positions are selected
+        submitBtn.setEnabled(allSelected);
+        if (!allSelected) {
+            submitBtn.setAlpha(0.5f);
+        } else {
+            submitBtn.setAlpha(1.0f);
+        }
     }
 
     private void setupListeners() {
-        // Back button
-        backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SGVoting16.class);
-            startActivity(intent);
-            finish();
-        });
+        // Back button at the top
+        backButton.setOnClickListener(v -> onBackPressed());
+
+        // Back button at the bottom
+        backBtn.setOnClickListener(v -> onBackPressed());
 
         // Submit button
-        submitButton.setOnClickListener(v -> showConfirmationDialog());
+        submitBtn.setOnClickListener(v -> {
+            // Save the votes and show confirmation
+            Toast.makeText(this, "Votes submitted successfully!", Toast.LENGTH_SHORT).show();
+            
+            // Clear the voting data
+            SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear();
+            editor.apply();
 
-        // Edit buttons
-        editPresident.setOnClickListener(v -> navigateToVoting(1));
-        editVicePresident.setOnClickListener(v -> navigateToVoting(2));
-        editSecretary.setOnClickListener(v -> navigateToVoting(3));
-        editAssistSecretary.setOnClickListener(v -> navigateToVoting(4));
-        editTreasurer.setOnClickListener(v -> navigateToVoting(5));
-        editAssistantTreasurer.setOnClickListener(v -> navigateToVoting(6));
-        editAuditor.setOnClickListener(v -> navigateToVoting(7));
-        editAssistantAuditor.setOnClickListener(v -> navigateToVoting(8));
-        editBusinessManager.setOnClickListener(v -> navigateToVoting(9));
-        editAssistantBusinessManager.setOnClickListener(v -> navigateToVoting(10));
-        editMultimedia1.setOnClickListener(v -> navigateToVoting(11));
-        editMultimedia2.setOnClickListener(v -> navigateToVoting(12));
-        editFirstYearRep.setOnClickListener(v -> navigateToVoting(13));
-        editSecondYearRep.setOnClickListener(v -> navigateToVoting(14));
-        editThirdYearRep.setOnClickListener(v -> navigateToVoting(15));
-        editFourthYearRep.setOnClickListener(v -> navigateToVoting(16));
+            // Navigate to the dashboard
+            navigateToActivity(DashboardActivity.class);
+        });
 
-
-        // Position row click listeners
-        presidentName.setOnClickListener(v -> navigateToVoting(1));
-        vicePresidentName.setOnClickListener(v -> navigateToVoting(2));
-        secretaryName.setOnClickListener(v -> navigateToVoting(3));
-        assistantSecretaryName.setOnClickListener(v -> navigateToVoting(4));
-        treasurerName.setOnClickListener(v -> navigateToVoting(5));
-        AssistanTreasurerName.setOnClickListener(v -> navigateToVoting(6));
-        auditorName.setOnClickListener(v -> navigateToVoting(7));
-        AssistantAuditorName.setOnClickListener(v -> navigateToVoting(8));
-        businessManagerName.setOnClickListener(v -> navigateToVoting(9));
-        AssistantBusinessManagerName.setOnClickListener(v -> navigateToVoting(10));
-        multimedia1Name.setOnClickListener(v -> navigateToVoting(11));
-        multimedia2Name.setOnClickListener(v -> navigateToVoting(12));
-        firstYearRepName.setOnClickListener(v -> navigateToVoting(13));
-        secondYearRepName.setOnClickListener(v -> navigateToVoting(14));
-        thirdYearRepName.setOnClickListener(v -> navigateToVoting(15));
-        fourthYearRepName.setOnClickListener(v -> navigateToVoting(16));
-
-
+        // Edit buttons for each position
+        editPresident.setOnClickListener(v -> navigateToActivity(SGVoting1.class));
+        editVicePresident.setOnClickListener(v -> navigateToActivity(SGVoting2.class));
+        editSecretary.setOnClickListener(v -> navigateToActivity(SGVoting3.class));
+        editAssistSecretary.setOnClickListener(v -> navigateToActivity(SGVoting4.class));
+        editTreasurer.setOnClickListener(v -> navigateToActivity(SGVoting5.class));
+        editAssistantTreasurer.setOnClickListener(v -> navigateToActivity(SGVoting6.class));
+        editAuditor.setOnClickListener(v -> navigateToActivity(SGVoting7.class));
+        editAssistantAuditor.setOnClickListener(v -> navigateToActivity(SGVoting8.class));
+        editBusinessManager.setOnClickListener(v -> navigateToActivity(SGVoting9.class));
+        editAssistantBusinessManager.setOnClickListener(v -> navigateToActivity(SGVoting10.class));
+        editMultimedia1.setOnClickListener(v -> navigateToActivity(SGVoting11.class));
+        editMultimedia2.setOnClickListener(v -> navigateToActivity(SGVoting12.class));
+        editFirstYearRep.setOnClickListener(v -> navigateToActivity(SGVoting13.class));
+        editSecondYearRep.setOnClickListener(v -> navigateToActivity(SGVoting14.class));
+        editThirdYearRep.setOnClickListener(v -> navigateToActivity(SGVoting15.class));
+        editFourthYearRep.setOnClickListener(v -> navigateToActivity(SGVoting16.class));
 
         // Bottom navigation
         homeNav.setOnClickListener(v -> navigateToActivity(DashboardActivity.class));
@@ -141,161 +212,21 @@ public class SGVotingSummary extends AppCompatActivity {
         profileNav.setOnClickListener(v -> navigateToActivity(ProfileActivity.class));
     }
 
-    private void loadVotingData() {
-        // Load the selected candidates from SharedPreferences
-        android.content.SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
-        
-        presidentName.setText(prefs.getString("sgPresident", "No selection"));
-        vicePresidentName.setText(prefs.getString("sgVicePresident", "No selection"));
-        secretaryName.setText(prefs.getString("sgSecretary", "No selection"));
-        assistantSecretaryName.setText(prefs.getString("sgAssistantSecretary", "No selection"));
-        treasurerName.setText(prefs.getString("sgTreasurer", "No selection"));
-        AssistanTreasurerName.setText(prefs.getString("sgAssistantTreasurer", "No selection"));
-        auditorName.setText(prefs.getString("sgAuditor", "No selection"));
-        AssistantAuditorName.setText(prefs.getString("sgPRO", "No selection"));
-        AssistantBusinessManagerName.setText(prefs.getString("sgPIO", "No selection"));
-        businessManagerName.setText(prefs.getString("sgBusinessManager", "No selection"));
-        multimedia1Name.setText(prefs.getString("sgPeaceOfficer", "No selection"));
-        multimedia2Name.setText(prefs.getString("sgPeaceOfficer", "No selection"));
-        firstYearRepName.setText(prefs.getString("sgFirstYearRep", "No selection"));
-        secondYearRepName.setText(prefs.getString("sgSecondYearRep", "No selection"));
-        thirdYearRepName.setText(prefs.getString("sgThirdYearRep", "No selection"));
-        fourthYearRepName.setText(prefs.getString("sgFourthYearRep", "No selection"));
-
-    }
-
-    private void showConfirmationDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Proceed to Confirmation")
-                .setMessage("Are you ready to proceed to the confirmation step?")
-                .setPositiveButton("Proceed", (dialog, which) -> {
-                    Intent intent = new Intent(this, SGVotingConfirmation.class);
-                    startActivity(intent);
-                })
-                .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
-                .show();
-    }
-
-    private void navigateToVoting(int position) {
-        // Save current voting data before navigating
-        saveCurrentVotingState();
-        
-        // Navigate to the appropriate voting screen based on position
-        Intent intent;
-        switch (position) {
-            case 1:
-                intent = new Intent(this, SGVoting1.class);
-                break;
-            case 2:
-                intent = new Intent(this, SGVoting2.class);
-                break;
-            case 3:
-                intent = new Intent(this, SGVoting3.class);
-                break;
-            case 4:
-                intent = new Intent(this, SGVoting4.class);
-                break;
-            case 5:
-                intent = new Intent(this, SGVoting5.class);
-                break;
-            case 6:
-                intent = new Intent(this, SGVoting6.class);
-                break;
-            case 7:
-                intent = new Intent(this, SGVoting7.class);
-                break;
-            case 8:
-                intent = new Intent(this, SGVoting8.class);
-                break;
-            case 9:
-                intent = new Intent(this, SGVoting9.class);
-                break;
-            case 10:
-                intent = new Intent(this, SGVoting10.class);
-                break;
-            case 11:
-                intent = new Intent(this, SGVoting11.class);
-                break;
-            case 12:
-                intent = new Intent(this, SGVoting12.class);
-                break;
-            case 13:
-                intent = new Intent(this, SGVoting13.class);
-                break;
-            case 14:
-                intent = new Intent(this, SGVoting14.class);
-                break;
-            case 15:
-                intent = new Intent(this, SGVoting15.class);
-                break;
-            case 16:
-                intent = new Intent(this, SGVoting16.class);
-                break;
-            default:
-                return;
-        }
-        startActivity(intent);
-    }
-
-    private void saveCurrentVotingState() {
-        SharedPreferences prefs = getSharedPreferences("VotingData", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-
-        // Save all current selections
-        if (!presidentName.getText().toString().equals("No selection")) {
-            editor.putString("sgPresident", presidentName.getText().toString());
-        }
-        if (!vicePresidentName.getText().toString().equals("No selection")) {
-            editor.putString("sgVicePresident", vicePresidentName.getText().toString());
-        }
-        if (!secretaryName.getText().toString().equals("No selection")) {
-            editor.putString("sgSecretary", secretaryName.getText().toString());
-        }
-        if (!assistantSecretaryName.getText().toString().equals("No selection")) {
-            editor.putString("sgAssistantSecretary", assistantSecretaryName.getText().toString());
-        }
-        if (!treasurerName.getText().toString().equals("No selection")) {
-            editor.putString("sgTreasurer", treasurerName.getText().toString());
-        }
-        if (!AssistanTreasurerName.getText().toString().equals("No selection")) {
-            editor.putString("sgAssistantTreasurer", AssistanTreasurerName.getText().toString());
-        }
-        if (!auditorName.getText().toString().equals("No selection")) {
-            editor.putString("sgAuditor", auditorName.getText().toString());
-        }
-        if (!AssistantAuditorName.getText().toString().equals("No selection")) {
-            editor.putString("sgPRO", AssistantAuditorName.getText().toString());
-        }
-        if (!businessManagerName.getText().toString().equals("No selection")) {
-            editor.putString("sgBusinessManager", businessManagerName.getText().toString());
-        }
-        if (!AssistantBusinessManagerName.getText().toString().equals("No selection")) {
-            editor.putString("sgPIO", AssistantBusinessManagerName.getText().toString());
-        }
-        if (!multimedia1Name.getText().toString().equals("No selection")) {
-            editor.putString("sgPeaceOfficer", multimedia1Name.getText().toString());
-        }
-        if (!multimedia2Name.getText().toString().equals("No selection")) {
-            editor.putString("sgPeaceOfficer", multimedia2Name.getText().toString());
-        }
-        if (!firstYearRepName.getText().toString().equals("No selection")) {
-            editor.putString("sgFirstYearRep", firstYearRepName.getText().toString());
-        }
-        if (!secondYearRepName.getText().toString().equals("No selection")) {
-            editor.putString("sgSecondYearRep", secondYearRepName.getText().toString());
-        }
-        if (!thirdYearRepName.getText().toString().equals("No selection")) {
-            editor.putString("sgThirdYearRep", thirdYearRepName.getText().toString());
-        }
-        if (!fourthYearRepName.getText().toString().equals("No selection")) {
-            editor.putString("sgFourthYearRep", fourthYearRepName.getText().toString());
-        }
-
-        editor.apply();
+    private void setupBottomNavigation() {
+        // Set the vote nav as selected
+        voteNav.setSelected(true);
     }
 
     private void navigateToActivity(Class<?> destinationActivity) {
+        if (this.getClass().equals(destinationActivity)) {
+            return; // Already in the desired activity
+        }
         Intent intent = new Intent(this, destinationActivity);
+        // Add fromSummary flag for voting activities
+        if (destinationActivity.getSimpleName().startsWith("SGVoting") && 
+            !destinationActivity.getSimpleName().equals("SGVotingSummary")) {
+            intent.putExtra("fromSummary", true);
+        }
         startActivity(intent);
         overridePendingTransition(0, 0);
         finish();
@@ -304,7 +235,8 @@ public class SGVotingSummary extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, SGVoting16.class);
+        // Navigate back to the last voting screen
+        Intent intent = new Intent(this, SGVoting8.class);
         startActivity(intent);
         finish();
     }
