@@ -15,12 +15,12 @@ public class OrgVoting2 extends AppCompatActivity {
     private Button backBtn, nextBtn;
     private ImageButton backButton;
     private RadioButton[] candidateRadioButtons;
-    private TextView[] candidateMoreLinks;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_org_voting2);
+        setContentView(R.layout.activity_org_voting1);
 
         initializeViews();
         setupListeners();
@@ -43,22 +43,10 @@ public class OrgVoting2 extends AppCompatActivity {
         candidateRadioButtons[2] = findViewById(R.id.candidate3Radio);
         candidateRadioButtons[3] = findViewById(R.id.candidate4Radio);
 
-        // Initialize "More" links
-        candidateMoreLinks = new TextView[4];
-        candidateMoreLinks[0] = findViewById(R.id.candidate1More);
-        candidateMoreLinks[1] = findViewById(R.id.candidate2More);
-        candidateMoreLinks[2] = findViewById(R.id.candidate3More);
-        candidateMoreLinks[3] = findViewById(R.id.candidate4More);
-
         // Make all views clickable
         homeNav.setClickable(true);
         voteNav.setClickable(true);
         profileNav.setClickable(true);
-        for (TextView moreLink : candidateMoreLinks) {
-            if (moreLink != null) {
-                moreLink.setClickable(true);
-            }
-        }
     }
 
     private void setupListeners() {
@@ -76,14 +64,6 @@ public class OrgVoting2 extends AppCompatActivity {
                 Toast.makeText(this, "Please select a candidate", Toast.LENGTH_SHORT).show();
             }
         });
-
-        // Set up click listeners for "More" links
-        for (int i = 0; i < candidateMoreLinks.length; i++) {
-            final int candidateIndex = i;
-            if (candidateMoreLinks[i] != null) {
-                candidateMoreLinks[i].setOnClickListener(v -> showCandidateDetails(candidateIndex));
-            }
-        }
 
         // Set up radio button group behavior
         for (int i = 0; i < candidateRadioButtons.length; i++) {
@@ -128,7 +108,7 @@ public class OrgVoting2 extends AppCompatActivity {
         String selectedCandidate = getSelectedCandidate();
         // TODO: Save the selection to your data storage
 
-        // Navigate to the organization voting step
+        // Navigate to the next voting step
         Intent intent = new Intent(this, OrgVoting3.class);
         startActivity(intent);
         finish();
@@ -141,14 +121,6 @@ public class OrgVoting2 extends AppCompatActivity {
             }
         }
         return null;
-    }
-
-    private void showCandidateDetails(int candidateIndex) {
-        if (candidateRadioButtons[candidateIndex] != null) {
-            String candidateName = candidateRadioButtons[candidateIndex].getText().toString();
-            // TODO: Implement showing candidate details (e.g., in a dialog or new activity)
-            Toast.makeText(this, "Showing details for " + candidateName, Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void navigateToActivity(Class<?> destinationActivity) {
@@ -164,7 +136,7 @@ public class OrgVoting2 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        // Navigate back to the President voting screen
+        // Navigate back to the previous screen
         Intent intent = new Intent(this, OrgVoting1.class);
         startActivity(intent);
         finish();
