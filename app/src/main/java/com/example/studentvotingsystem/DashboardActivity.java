@@ -25,11 +25,9 @@ public class DashboardActivity extends AppCompatActivity {
         try {
             initializeViews();
             setupClickListeners();
-            
-            // Set initial text
-            userNameText.setText("Kurt!");
-            
-            // Highlight the current tab
+
+            userNameText.setText("Kurt!"); // change to current user
+
             homeNav.setSelected(true);
         } catch (Exception e) {
             Log.e(TAG, "Error in onCreate: " + e.getMessage());
@@ -41,13 +39,11 @@ public class DashboardActivity extends AppCompatActivity {
         userNameText = findViewById(R.id.userName);
         viewResultsButton = findViewById(R.id.viewResultsButton);
         voteNowButton = findViewById(R.id.voteNowButton);
-        
-        // Initialize bottom navigation
+
         homeNav = findViewById(R.id.homeNav);
         voteNav = findViewById(R.id.voteNav);
         profileNav = findViewById(R.id.profileNav);
 
-        // Initialize notification icon with click handler
         ImageView notificationIcon = findViewById(R.id.notificationIcon);
         notificationIcon.setOnClickListener(v -> {
             Intent intent = new Intent(this, NotificationActivity.class);

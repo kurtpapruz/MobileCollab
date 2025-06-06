@@ -4,56 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log;
 
 public class VotingInstructionsActivity extends AppCompatActivity {
-    private LinearLayout homeNav, voteNav ,profileNav;
+    private ImageView backButton;
     private Button nextButton;
-    private ImageButton backButton;
+    private LinearLayout homeNav, voteNav, profileNav;
+    private int electionId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voting_instructions);
 
-        nextButton = (Button) findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(VotingInstructionsActivity.this, OrgVoting1.class);
-                startActivity(intent);
-            }
-        });
+        electionId = getIntent().getIntExtra("election_id", -1);
+        Log.d("DEBUG", "Received election_id = " + electionId);
 
-        homeNav = findViewById(R.id.homeNav);
-        homeNav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(VotingInstructionsActivity.this, DashboardActivity.class);
-                startActivity(intent);
-            }
-        });
-        voteNav = findViewById(R.id.voteNav);
-        voteNav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(VotingInstructionsActivity.this, VoteActivity.class);
-                startActivity(intent);
-            }
-        });
-        profileNav = findViewById(R.id.profileNav);
-        profileNav = findViewById(R.id.profileNav);
-        profileNav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(VotingInstructionsActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
+        initializeViews();
 
         ImageView notificationIcon = findViewById(R.id.notificationIcon);
         notificationIcon.setOnClickListener(v -> {
@@ -61,5 +32,51 @@ public class VotingInstructionsActivity extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(0, 0);
         });
+        setupListeners();
+    }
+
+    private void initializeViews() {
+        backButton = findViewById(R.id.backButton);
+        nextButton = findViewById(R.id.nextButton);
+        homeNav = findViewById(R.id.homeNav);
+        voteNav = findViewById(R.id.voteNav);
+        profileNav = findViewById(R.id.profileNav);
+    }
+
+    private void setupListeners() {
+        backButton.setOnClickListener(v -> onBackPressed());
+        int orgId = 2;
+
+        nextButton.setOnClickListener(v -> {
+            Log.d("DEBUG", "Next button clicked with election_id = " + electionId);
+            Intent intent = new Intent(this, OrgVoting1.class);
+            intent.putExtra("election_id", electionId);
+            intent.putExtra("org_id", orgId);
+            Log.d("DEBUG", "Passing election_id = " + electionId + ", org_id = " + orgId);
+            startActivity(intent);
+        });
+
+        homeNav.setOnClickListener(v -> navigateToActivity(DashboardActivity.class));
+
+        voteNav.setOnClickListener(v ->
+                Toast.makeText(this, "Currently in voting process", Toast.LENGTH_SHORT).show());
+
+        profileNav.setOnClickListener(v -> navigateToActivity(ProfileActivity.class));
+    }
+
+    private void navigateToActivity(Class<?> destinationActivity) {
+        Intent intent = new Intent(this, destinationActivity);
+        startActivity(intent);
+        if (destinationActivity == DashboardActivity.class) {
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, VoteActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -58,9 +58,6 @@
         app:layout_constraintStart_toEndOf="@id/backButton"
         app:layout_constraintTop_toTopOf="@id/backButton" />
 
-    <!-- Progress Indicator -->
-
-    <!-- Scrollable Content -->
     <LinearLayout
         android:id="@+id/progressIndicator"
         android:layout_width="wrap_content"
@@ -129,155 +126,22 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Position Title -->
-    <TextView
-        android:id="@+id/positionTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="President"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressIndicator" />
-
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@id/navigationButtons"
-        app:layout_constraintTop_toBottomOf="@id/positionTitle">
+        app:layout_constraintTop_toBottomOf="@+id/progressIndicator"
+        app:layout_constraintBottom_toTopOf="@+id/navigationButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/positionsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp" />
 
-            <GridLayout
-                android:id="@+id/candidatesGrid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="16dp"
-                android:columnCount="2">
-
-                <!-- Candidate 1 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="140dp"
-                            android:background="@android:color/darker_gray"
-                            android:scaleType="centerCrop" />
-
-                        <RadioButton
-                            android:id="@+id/candidate1Radio"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:text="Marquez, Lei Anysson" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Candidate 2 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="140dp"
-                            android:background="@android:color/darker_gray"
-                            android:scaleType="centerCrop" />
-
-                        <RadioButton
-                            android:id="@+id/candidate2Radio"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:text="Vienor, Jayson" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Candidate 3 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="140dp"
-                            android:background="@android:color/darker_gray"
-                            android:scaleType="centerCrop" />
-
-                        <RadioButton
-                            android:id="@+id/candidate3Radio"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:text="Papuiz, Kurt Russel B." />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Candidate 4 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="140dp"
-                            android:background="@android:color/darker_gray"
-                            android:scaleType="centerCrop" />
-
-                        <RadioButton
-                            android:id="@+id/candidate4Radio"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:text="Bayonito, Grace Judith" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </GridLayout>
-        </LinearLayout>
     </ScrollView>
 
     <!-- Navigation Buttons -->

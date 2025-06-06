@@ -42,29 +42,24 @@ public class OrgVotingConfirmation extends AppCompatActivity {
     }
 
     private void setupListeners() {
-        // Back button
         backButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, OrgVotingSummary.class);
             startActivity(intent);
             finish();
         });
 
-        // Proceed button
         proceedButton.setOnClickListener(v -> {
             if (validatePassword()) {
                 showConfirmationDialog();
             }
         });
 
-        // Done button
         doneButton.setOnClickListener(v -> {
             navigateToActivity(DashboardActivity.class);
         });
 
-        // Bottom navigation
         homeNav.setOnClickListener(v -> navigateToActivity(DashboardActivity.class));
         voteNav.setOnClickListener(v -> {
-            // Already in voting process
             Toast.makeText(this, "Currently in voting process", Toast.LENGTH_SHORT).show();
         });
         profileNav.setOnClickListener(v -> navigateToActivity(ProfileActivity.class));
